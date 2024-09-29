@@ -1,15 +1,8 @@
 
-function towelSort(matrix) {
+
+module.exports = function towelSort(matrix) {
   if (!matrix || matrix.length === 0) {
     return [];
   }
-
-  return matrix.reduce((acc, row, index) => {
-    const sortedRow = index % 2 === 0 ? row : row.reverse();
-    return acc.concat(sortedRow);
-  }, []);
-}
-
-module.exports = function towelSort(matrix) {
-  return [];
+  return matrix.map((arr, i) => (i % 2 === 0 ? arr : arr.reverse())).flat();
 }
